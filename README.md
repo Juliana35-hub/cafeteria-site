@@ -2,8 +2,6 @@
 
 Um site institucional premium para uma cafeteria fictícia, desenvolvido com foco em design sofisticado, responsividade e alta performance.
 
-![Café Aurora Preview](https://via.placeholder.com/1200x600?text=Cafe+Aurora+Website+Preview)
-
 ## 🎯 Objetivo
 O projeto foi criado para demonstrar habilidades em **Frontend Development**, focando em uma interface "chic minimalista" que prioriza a experiência do usuário (UX) e a conversão (contato via WhatsApp).
 
@@ -29,12 +27,4 @@ O projeto foi criado para demonstrar habilidades em **Frontend Development**, fo
   - Títulos: *Playfair Display* (Serifada elegante)
   - Corpo: *Montserrat* (Moderna e legível)
 
-## 📦 Como rodar o projeto localmente
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/SEU-USUARIO/cafeteria-site.git
-   ```
-2. Abra o arquivo `index.html` em seu navegador.
-
----
 Desenvolvido com ❤️ por [Seu Nome]
