@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Aurora | Uma Experiência Artesanal</title>
+    <meta name="description" content="Café Aurora - Onde cada grão conta uma história. Venha viver uma experiência única com cafés artesanais em Manaus.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">Café Aurora</a>
+            
+            <div class="menu-btn" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#cardapio" class="btn btn-accent">Ver Cardápio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="inicio">
+            <h1>Mais do que café, uma experiência.</h1>
+            <p>Descubra o sabor do grão selecionado em um ambiente feito para você.</p>
+            <div class="hero-btns">
+                <a href="#cardapio" class="btn btn-primary">Conhecer Cardápio</a>
+                <a href="https://wa.me/5592999999999" target="_blank" class="btn btn-outline" style="color: white; border-color: white;">Falar no WhatsApp</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="sobre">
+            <div class="about-img"></div>
+            <div class="about-content">
+                <h2>Nossa História</h2>
+                <p>A Café Aurora nasceu em Manaus com o propósito de criar momentos especiais através do café artesanal. Acreditamos que uma xícara de café pode transformar o dia de alguém.</p>
+                <p>Nossos grãos são selecionados das melhores fazendas brasileiras e torrados com precisão para garantir notas sensoriais inesquecíveis.</p>
+                <a href="#inicio" class="btn btn-outline">Saiba Mais</a>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section class="menu" id="cardapio">
+            <h2>Nosso Cardápio</h2>
+            <div class="menu-grid">
+                <!-- Espresso -->
+                <div class="menu-card">
+                    <i class="fas fa-mug-hot" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h3>Café Espresso</h3>
+                    <p>Grão arábica intenso com crema densa e notas de chocolate.</p>
+                    <span class="price">R$ 8,00</span>
+                </div>
+                <!-- Cappuccino -->
+                <div class="menu-card">
+                    <i class="fas fa-mug-hot" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h3>Cappuccino Italiano</h3>
+                    <p>Dose de espresso com leite vaporizado e crema aveludada.</p>
+                    <span class="price">R$ 14,00</span>
+                </div>
+                <!-- Bolo -->
+                <div class="menu-card">
+                    <i class="fas fa-bread-slice" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h3>Bolo de Chocolate</h3>
+                    <p>Bolo fofinho com cobertura de brigadeiro 70% cacau.</p>
+                    <span class="price">R$ 12,00</span>
+                </div>
+                <!-- Pão de Queijo -->
+                <div class="menu-card">
+                    <i class="fas fa-cookie" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h3>Pão de Queijo Premium</h3>
+                    <p>Tradicional pão de queijo mineiro, crocante por fora e macio por dentro.</p>
+                    <span class="price">R$ 7,00</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contato">
+            <div class="contact-info">
+                <h2>Onde Estamos</h2>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Ephigênio Salles, 1234 - Manaus, AM</p>
+                <p><i class="fas fa-phone"></i> (92) 99999-9999</p>
+                <p><i class="fas fa-clock"></i> Seg a Sáb: 08:00 - 20:00</p>
+                
+                <div style="margin-top: 30px;">
+                    <a href="https://wa.me/5592999999999" target="_blank" class="btn btn-accent">
+                        <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <input type="text" placeholder="Seu Nome" required>
+                <input type="email" placeholder="Seu E-mail" required>
+                <textarea placeholder="Sua Mensagem" required></textarea>
+                <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">Café Aurora</span>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="copyright">&copy; 2026 Café Aurora - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
