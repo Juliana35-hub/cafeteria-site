@@ -22,7 +22,9 @@
             <ul class="nav-links" id="nav-links">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#mais-vendidos">Mais Vendidos</a></li>
                 <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
                 <li><a href="#contato">Contato</a></li>
                 <li><a href="#cardapio" class="btn btn-accent">Ver Cardápio</a></li>
             </ul>
@@ -44,44 +46,106 @@
         <section class="about" id="sobre">
             <div class="about-img"></div>
             <div class="about-content">
-                <h2>Nossa História</h2>
-                <p>A Café Aurora nasceu em Manaus com o propósito de criar momentos especiais através do café artesanal. Acreditamos que uma xícara de café pode transformar o dia de alguém.</p>
-                <p>Nossos grãos são selecionados das melhores fazendas brasileiras e torrados com precisão para garantir notas sensoriais inesquecíveis.</p>
-                <a href="#inicio" class="btn btn-outline">Saiba Mais</a>
+                <span>Tradição & Sabor</span>
+                <h2>A Experiência Café Aurora</h2>
+                <p>Nascemos da paixão pelo grão perfeito. Em Manaus, somos referência em café artesanal, unindo técnicas clássicas com um toque de modernidade e sofisticação.</p>
+                <p>Cada xícara servida é o resultado de uma seleção rigorosa de produtores locais e nacionais, garantindo frescor e notas sensoriais únicas.</p>
+                <a href="#inicio" class="btn btn-outline">Conheça nossa origem</a>
+            </div>
+        </section>
+
+        <!-- Best Sellers -->
+        <section class="menu" id="mais-vendidos" style="background-color: var(--white);">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Favoritos da Casa</span>
+                <h2 style="margin-top: 10px;">Os Mais Vendidos</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <i class="fas fa-crown" style="position: absolute; top: 15px; right: 15px; color: var(--accent);"></i>
+                    <h3>Cappuccino de Avelã</h3>
+                    <p>O favorito absoluto. Leite cremoso, espresso intenso e um toque de avelã tostada.</p>
+                    <div>
+                        <span class="price">R$ 18,00</span>
+                        <a href="https://wa.me/5592999999999?text=Olá! Gostaria de pedir um Cappuccino de Avelã." target="_blank" class="btn btn-accent order-btn">Pedir Agora</a>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <i class="fas fa-crown" style="position: absolute; top: 15px; right: 15px; color: var(--accent);"></i>
+                    <h3>Torta de Pistache</h3>
+                    <p>Massa folhada artesanal com creme de pistache iraniano e frutas vermelhas.</p>
+                    <div>
+                        <span class="price">R$ 22,00</span>
+                        <a href="https://wa.me/5592999999999?text=Olá! Gostaria de pedir uma Torta de Pistache." target="_blank" class="btn btn-accent order-btn">Pedir Agora</a>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Menu Section -->
         <section class="menu" id="cardapio">
-            <h2>Nosso Cardápio</h2>
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span style="color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Escolha o seu momento</span>
+                <h2 style="margin-top: 10px;">Nosso Cardápio</h2>
+            </div>
             <div class="menu-grid">
                 <!-- Espresso -->
                 <div class="menu-card">
                     <i class="fas fa-mug-hot" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
                     <h3>Café Espresso</h3>
                     <p>Grão arábica intenso com crema densa e notas de chocolate.</p>
-                    <span class="price">R$ 8,00</span>
+                    <div>
+                        <span class="price">R$ 8,00</span>
+                        <a href="https://wa.me/5592999999999?text=Olá! Gostaria de pedir um Café Espresso." target="_blank" class="btn btn-accent order-btn">Pedir Agora</a>
+                    </div>
                 </div>
                 <!-- Cappuccino -->
                 <div class="menu-card">
                     <i class="fas fa-mug-hot" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
                     <h3>Cappuccino Italiano</h3>
                     <p>Dose de espresso com leite vaporizado e crema aveludada.</p>
-                    <span class="price">R$ 14,00</span>
+                    <div>
+                        <span class="price">R$ 14,00</span>
+                        <a href="https://wa.me/5592999999999?text=Olá! Gostaria de pedir um Cappuccino Italiano." target="_blank" class="btn btn-accent order-btn">Pedir Agora</a>
+                    </div>
                 </div>
                 <!-- Bolo -->
                 <div class="menu-card">
                     <i class="fas fa-bread-slice" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
                     <h3>Bolo de Chocolate</h3>
                     <p>Bolo fofinho com cobertura de brigadeiro 70% cacau.</p>
-                    <span class="price">R$ 12,00</span>
+                    <div>
+                        <span class="price">R$ 12,00</span>
+                        <a href="https://wa.me/5592999999999?text=Olá! Gostaria de pedir um Bolo de Chocolate." target="_blank" class="btn btn-accent order-btn">Pedir Agora</a>
+                    </div>
                 </div>
                 <!-- Pão de Queijo -->
                 <div class="menu-card">
                     <i class="fas fa-cookie" style="font-size: 2rem; color: var(--accent); margin-bottom: 20px;"></i>
                     <h3>Pão de Queijo Premium</h3>
                     <p>Tradicional pão de queijo mineiro, crocante por fora e macio por dentro.</p>
-                    <span class="price">R$ 7,00</span>
+                    <div>
+                        <span class="price">R$ 7,00</span>
+                        <a href="https://wa.me/5592999999999?text=Olá! Gostaria de pedir um Pão de Queijo Premium." target="_blank" class="btn btn-accent order-btn">Pedir Agora</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials" id="depoimentos" style="background-color: var(--secondary);">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span style="color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">O que dizem nossos clientes</span>
+                <h2 style="margin-top: 10px; color: var(--primary);">Experiências Aurora</h2>
+            </div>
+            <div class="menu-grid">
+                <div style="background: var(--white); padding: 40px; border-radius: 20px; font-style: italic;">
+                    <p>"O melhor cappuccino de Manaus. O ambiente é acolhedor e o atendimento é impecável. Virou meu escritório favorito!"</p>
+                    <div style="margin-top: 20px; font-weight: 700; color: var(--primary); font-style: normal;">- Mariana Silva</div>
+                </div>
+                <div style="background: var(--white); padding: 40px; border-radius: 20px; font-style: italic;">
+                    <p>"A torta de pistache é de outro mundo. Dá pra sentir a qualidade dos ingredientes em cada mordida. Recomendo muito!"</p>
+                    <div style="margin-top: 20px; font-weight: 700; color: var(--primary); font-style: normal;">- Ricardo Oliveira</div>
                 </div>
             </div>
         </section>
