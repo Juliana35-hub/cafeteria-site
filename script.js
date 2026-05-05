@@ -3,8 +3,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     
-    // Navbar Scroll Effect
-    window.addEventListener('scroll', () => {
+    // 1. Navbar Scroll Effect
+    const handleHeaderScroll = () => {
         if (window.scrollY > 50) {
             header.style.background = 'rgba(75, 46, 43, 0.98)';
             header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
@@ -16,34 +16,30 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.logo').style.color = '#4B2E2B';
             document.querySelectorAll('.nav-links a').forEach(a => a.style.color = '#2A1F19');
         }
-    });
+    };
 
-    // Reveal Animations (Regra #9)
+    window.addEventListener('scroll', handleHeaderScroll);
+    handleHeaderScroll();
+
+    // 2. Reveal Animations on Scroll (Regra #3)
     const revealOptions = {
-        threshold: 0.1,
+        threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
     };
 
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('appear');
             }
         });
     }, revealOptions);
 
-    // Aplicando animação inicial aos elementos que queremos revelar
-    const animatedElements = document.querySelectorAll('.menu-card, .testimonial-card, .feature-item, .about-content, .about-img');
-    
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease-out';
+    document.querySelectorAll('.reveal').forEach(el => {
         revealObserver.observe(el);
     });
 
-    // Smooth Scroll Fix
+    // 3. Smooth Scroll (Regra #5)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();

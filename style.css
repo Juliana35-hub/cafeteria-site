@@ -5,25 +5,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
-    /* 🎨 Paleta (Regra #1) */
-    --primary: #4B2E2B;      /* Marrom Café */
-    --secondary: #F5E6D3;    /* Bege */
-    --bg-creme: #FFF8F0;     /* Fundo Creme */
-    --accent: #D97A2B;       /* Laranja Suave */
-    
+    --primary: #4B2E2B;
+    --secondary: #F5E6D3;
+    --bg-creme: #FFF8F0;
+    --accent: #D97A2B;
     --text-dark: #2A1F19;
-    --text-light: #F5E6D3;
     --white: #FFFFFF;
     
-    /* Tipografia */
     --font-title: 'Cormorant Garamond', serif;
     --font-text: 'Plus Jakarta Sans', sans-serif;
     
-    /* Transições (Regra #9) */
-    --transition: all 0.3s ease;
+    --transition: all 0.3s ease; /* Regra #9: Transições suaves 0.3s */
     --shadow-light: 0 4px 15px rgba(0,0,0,0.05);
     --shadow-hover: 0 10px 30px rgba(0,0,0,0.1);
-    
     --radius: 12px;
 }
 
@@ -34,7 +28,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Regra #5: Scroll suave */
 }
 
 body {
@@ -49,6 +43,7 @@ h1, h2, h3, .logo {
     font-weight: 700;
 }
 
+/* Regra #6: Microinterações - Links mudam cor suavemente */
 a {
     text-decoration: none;
     color: inherit;
@@ -56,10 +51,9 @@ a {
 }
 
 ul { list-style: none; }
-
 img { max-width: 100%; display: block; }
 
-/* 📱 Navbar Fixa (Regra #11) */
+/* Navbar Fixa */
 header {
     position: fixed;
     top: 0;
@@ -72,23 +66,26 @@ header {
     align-items: center;
     z-index: 1000;
     border-bottom: 1px solid rgba(75, 46, 43, 0.05);
+    transition: var(--transition);
 }
 
-.logo {
-    font-size: 1.8rem;
-    color: var(--primary);
+.logo { font-size: 1.8rem; color: var(--primary); }
+.nav-links { display: flex; gap: 30px; }
+.nav-links a:hover { color: var(--accent); }
+
+/* Animações de Fade-in (Regra #3) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.nav-links {
-    display: flex;
-    gap: 30px;
+.reveal.appear {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.nav-links a:hover {
-    color: var(--accent);
-}
-
-/* 🟤 1. HERO (Regra #2) */
+/* 1. HERO (Regra #4: Animação Hero) */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070') center/cover no-repeat;
@@ -106,6 +103,9 @@ header {
     line-height: 1;
     margin-bottom: 20px;
     max-width: 900px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFade 1s ease-out forwards;
 }
 
 .hero p {
@@ -113,13 +113,24 @@ header {
     margin-bottom: 40px;
     max-width: 700px;
     color: var(--secondary);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFade 1s ease-out 0.3s forwards;
 }
 
-.btn-group {
+.hero .btn-group {
     display: flex;
     gap: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFade 1s ease-out 0.6s forwards;
 }
 
+@keyframes heroFade {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botões (Regra #1: Hover Vivo) */
 .btn {
     padding: 15px 35px;
     border-radius: 50px;
@@ -131,14 +142,15 @@ header {
 }
 
 .btn-primary {
-    background-color: var(--accent); /* Regra #11: Cor destaque */
+    background-color: var(--accent);
     color: var(--white);
     border: none;
 }
 
 .btn-primary:hover {
     background-color: #BF6A24;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05); /* Zoom leve */
+    box-shadow: 0 10px 20px rgba(217, 122, 43, 0.3); /* Sombra forte */
 }
 
 .btn-outline {
@@ -150,9 +162,10 @@ header {
 .btn-outline:hover {
     background: var(--white);
     color: var(--primary);
+    transform: translateY(-3px) scale(1.05);
 }
 
-/* 🟤 2. SOBRE (Regra #4) */
+/* 2. SOBRE */
 .about {
     padding: 120px 8%;
     display: grid;
@@ -161,46 +174,16 @@ header {
     align-items: center;
 }
 
-.about-content h2 {
-    font-size: 3rem;
-    color: var(--primary);
-    line-height: 1.1;
-    margin-bottom: 30px;
-}
+.about-content h2 { font-size: 3rem; color: var(--primary); margin-bottom: 30px; line-height: 1.1; }
+.about-content p { margin-bottom: 20px; color: var(--text-dark); }
+.about-img img { border-radius: var(--radius); box-shadow: var(--shadow-hover); }
 
-.about-content p {
-    margin-bottom: 20px;
-    color: var(--text-dark);
-}
+/* 3. CARDÁPIO (Regra #2: Hover Cards) */
+.menu { padding: 120px 8%; background-color: var(--white); }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-header h2 { font-size: 3.5rem; color: var(--primary); line-height: 1; }
 
-.about-img img {
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-hover);
-}
-
-/* 🟤 3. CARDÁPIO (Regra #5) */
-.menu {
-    padding: 120px 8%;
-    background-color: var(--white);
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-header h2 {
-    font-size: 3.5rem;
-    color: var(--primary);
-    line-height: 1;
-}
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
+.menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .menu-card {
     background: var(--bg-creme);
     border-radius: var(--radius);
@@ -211,38 +194,27 @@ header {
 }
 
 .menu-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-10px); /* Sobe levemente */
+    box-shadow: var(--shadow-hover); /* Sombra aumenta */
 }
 
 .menu-card img {
     height: 250px;
     width: 100%;
     object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
-.menu-card-info {
-    padding: 30px;
+.menu-card:hover img {
+    transform: scale(1.1); /* Zoom leve imagem */
 }
 
-.menu-card-info h3 {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-}
+.menu-card-info { padding: 30px; }
+.menu-card-info h3 { margin-bottom: 10px; font-size: 1.5rem; }
+.menu-card-info p { color: #666; font-size: 0.95rem; margin-bottom: 20px; }
+.price { font-weight: 700; color: var(--primary); font-size: 1.3rem; }
 
-.menu-card-info p {
-    color: #666;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-}
-
-.menu-card-info .price {
-    font-weight: 700;
-    color: var(--primary);
-    font-size: 1.3rem;
-}
-
-/* 🟤 4. DIFERENCIAIS (Regra #6) */
+/* 4. DIFERENCIAIS */
 .features {
     padding: 100px 8%;
     display: flex;
@@ -251,101 +223,40 @@ header {
     text-align: center;
 }
 
+/* Regra #6: Microinterações ícones */
 .feature-item i {
     font-size: 3rem;
     color: var(--accent);
     margin-bottom: 20px;
+    transition: var(--transition);
 }
 
-.feature-item h4 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-/* 🟤 5. DEPOIMENTOS (Regra #7) */
-.testimonials {
-    padding: 120px 8%;
-    background-color: var(--white);
-    text-align: center;
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.testimonial-card {
-    padding: 40px;
-    background: var(--bg-creme);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-light);
-}
-
-.testimonial-card .stars {
-    color: #FFD700;
-    margin-bottom: 20px;
-}
-
-/* 🟤 6. CTA FINAL (Regra #8) */
-.cta-final {
-    background-color: var(--primary);
-    padding: 100px 5%;
-    text-align: center;
-    color: var(--white);
-}
-
-.cta-final h2 {
-    font-size: 3rem;
-    line-height: 1.1;
-    margin-bottom: 40px;
-}
-
-/* 🟤 7. FOOTER (Regra #11) */
-footer {
-    padding: 80px 8% 40px;
-    background-color: var(--bg-creme);
-    border-top: 1px solid rgba(0,0,0,0.05);
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 50px;
-    margin-bottom: 50px;
-}
-
-.footer-info .logo {
-    display: block;
-    margin-bottom: 20px;
-}
-
-.footer-links h4 {
-    margin-bottom: 20px;
+.feature-item:hover i {
+    transform: scale(1.2) rotate(5deg);
     color: var(--primary);
 }
 
-.footer-links ul li {
-    margin-bottom: 10px;
-}
+/* 5. DEPOIMENTOS */
+.testimonials { padding: 120px 8%; background-color: var(--white); text-align: center; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+.testimonial-card { padding: 40px; background: var(--bg-creme); border-radius: var(--radius); box-shadow: var(--shadow-light); transition: var(--transition); }
+.testimonial-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
 
-.copyright {
-    text-align: center;
-    padding-top: 40px;
-    border-top: 1px solid rgba(0,0,0,0.05);
-    font-size: 0.9rem;
-    color: #666;
-}
+/* 6. CTA FINAL */
+.cta-final { background-color: var(--primary); padding: 100px 5%; text-align: center; color: var(--white); }
+.cta-final h2 { font-size: 3rem; margin-bottom: 40px; line-height: 1.1; }
 
-/* 📱 Responsividade (Regra #10) */
+/* 7. FOOTER */
+footer { padding: 80px 8% 40px; background-color: var(--bg-creme); border-top: 1px solid rgba(0,0,0,0.05); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
+.copyright { text-align: center; padding-top: 40px; border-top: 1px solid rgba(0,0,0,0.05); font-size: 0.9rem; color: #666; }
+
 @media (max-width: 1024px) {
     .menu-grid, .testimonials-grid { grid-template-columns: 1fr 1fr; }
     .about { grid-template-columns: 1fr; gap: 40px; }
 }
 
 @media (max-width: 768px) {
-    header { padding: 15px 5%; }
     .nav-links { display: none; }
     .hero h1 { font-size: 2.2rem; }
     .menu-grid, .testimonials-grid, .footer-grid { grid-template-columns: 1fr; }
