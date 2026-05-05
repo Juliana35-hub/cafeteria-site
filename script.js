@@ -64,4 +64,66 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // 4. Testimonials Carousel
+    const track = document.getElementById('testimonials-track');
+    if (track) {
+        const cards = Array.from(track.children);
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const dotsNav = document.getElementById('carousel-dots');
+        
+        let currentIndex = 0;
+        let itemsToShow = window.innerWidth > 768 ? 2 : 1;
+        let maxIndex = cards.length - itemsToShow;
+
+        // Create dots
+        const createDots = () => {
+            dotsNav.innerHTML = '';
+            itemsToShow = window.innerWidth > 768 ? 2 : 1;
+            maxIndex = cards.length - itemsToShow;
+            for (let i = 0; i <= maxIndex; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsNav.appendChild(dot);
+            }
+        };
+
+        const updateDots = (index) => {
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        };
+
+        const goToSlide = (index) => {
+            if (index < 0) index = maxIndex;
+            if (index > maxIndex) index = 0;
+            
+            currentIndex = index;
+            const cardWidth = cards[0].getBoundingClientRect().width + 30; // card + gap
+            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            updateDots(currentIndex);
+        };
+
+        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+
+        // Auto Slide
+        let autoSlide = setInterval(() => goToSlide(currentIndex + 1), 5000);
+
+        // Pause on hover
+        track.addEventListener('mouseenter', () => clearInterval(autoSlide));
+        track.addEventListener('mouseleave', () => {
+            autoSlide = setInterval(() => goToSlide(currentIndex + 1), 5000);
+        });
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            createDots();
+            goToSlide(0);
+        });
+
+        createDots();
+    }
 });
