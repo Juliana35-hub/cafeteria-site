@@ -187,7 +187,7 @@ header {
 
 /* 2. SOBRE */
 .about {
-    padding: 120px 8%;
+    padding: 160px 8%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
@@ -204,7 +204,7 @@ header {
 .about-img img { border-radius: var(--radius); box-shadow: var(--shadow-hover); }
 
 /* 3. CARDÁPIO (Regra #2: Hover Cards) */
-.menu { padding: 120px 8%; background-color: var(--white); }
+.menu { padding: 160px 8%; background-color: var(--white); }
 .section-header { text-align: center; margin-bottom: 60px; }
 .section-header h2 { 
     font-size: 4rem; /* Aumentado */
@@ -245,7 +245,7 @@ header {
 
 /* 4. DIFERENCIAIS */
 .features {
-    padding: 100px 8%;
+    padding: 120px 8%;
     display: flex;
     justify-content: space-around;
     background-color: var(--bg-creme);
@@ -266,13 +266,13 @@ header {
 }
 
 /* 5. DEPOIMENTOS */
-.testimonials { padding: 120px 8%; background-color: var(--white); text-align: center; }
+.testimonials { padding: 160px 8%; background-color: var(--white); text-align: center; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
 .testimonial-card { padding: 40px; background: var(--bg-creme); border-radius: var(--radius); box-shadow: var(--shadow-light); transition: var(--transition); }
 .testimonial-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
 
 /* 6. CTA FINAL */
-.cta-final { background-color: var(--primary); padding: 100px 5%; text-align: center; color: var(--white); }
+.cta-final { background-color: var(--primary); padding: 120px 5%; text-align: center; color: var(--white); }
 .cta-final h2 { font-size: 3rem; margin-bottom: 40px; line-height: 1.1; }
 
 /* 7. FOOTER */
