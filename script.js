@@ -1,69 +1,81 @@
-// Café Aurora - Interatividade Premium
+// Café Aurora - Premium Ultra Interactions
 
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('header');
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    const links = document.querySelectorAll('.nav-links a');
-
-    // Mudar estilo do header ao rolar
-    const handleHeaderScroll = () => {
-        if (window.scrollY > 100) {
+    
+    // 1. Header Scroll Effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    };
-
-    window.addEventListener('scroll', handleHeaderScroll);
-    handleHeaderScroll(); // Verificar estado inicial
-
-    // Menu Mobile toggle
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        const icon = menuToggle.querySelector('i');
-        if (navLinks.classList.contains('active')) {
-            icon.className = 'fas fa-times';
-        } else {
-            icon.className = 'fas fa-bars';
-        }
     });
 
-    // Fechar menu ao clicar em um link
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            const icon = menuToggle.querySelector('i');
-            icon.className = 'fas fa-bars';
-        });
-    });
-
-    // Smooth Scroll com Offset para o header fixo
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+    // 2. Magnetic Buttons
+    const magneticWraps = document.querySelectorAll('.magnetic-wrap');
+    magneticWraps.forEach(wrap => {
+        wrap.addEventListener('mousemove', (e) => {
+            const rect = wrap.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
             
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                const offset = 80;
-                const bodyRect = document.body.getBoundingClientRect().top;
-                const elementRect = targetElement.getBoundingClientRect().top;
-                const elementPosition = elementRect - bodyRect;
-                const offsetPosition = elementPosition - offset;
+            const btn = wrap.querySelector('.btn, button');
+            if (btn) {
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            }
+        });
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+        wrap.addEventListener('mouseleave', () => {
+            const btn = wrap.querySelector('.btn, button');
+            if (btn) {
+                btn.style.transform = `translate(0px, 0px)`;
             }
         });
     });
 
-    // Intersection Observer para animações de entrada (Scroll Reveal)
-    const observerOptions = {
-        threshold: 0.15,
+    // 3. Tilt Effect for Cards
+    const tiltElements = document.querySelectorAll('.tilt-element');
+    tiltElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            
+            el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+        });
+    });
+
+    // 4. Floating Beans Generator
+    const floatingContainer = document.getElementById('floating-assets');
+    const createBean = () => {
+        const bean = document.createElement('i');
+        bean.className = 'fas fa-seedling floating-bean'; // Usando seedling como ícone de grão
+        bean.style.left = Math.random() * 100 + 'vw';
+        bean.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        bean.style.fontSize = (Math.random() * 20 + 10) + 'px';
+        floatingContainer.appendChild(bean);
+
+        setTimeout(() => {
+            bean.remove();
+        }, 20000);
+    };
+
+    setInterval(createBean, 2000);
+
+    // 5. Intersection Observer for Reveal
+    const revealOptions = {
+        threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
 
@@ -71,42 +83,25 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('appear');
-                
-                // Se for um container, animar os filhos com delay
-                if (entry.target.classList.contains('menu-grid') || entry.target.classList.contains('gallery-grid')) {
-                    const children = entry.target.children;
-                    Array.from(children).forEach((child, index) => {
-                        setTimeout(() => {
-                            child.classList.add('appear');
-                        }, index * 150);
-                    });
-                }
             }
         });
-    }, observerOptions);
+    }, revealOptions);
 
-    // Observar seções e grids
-    document.querySelectorAll('section, .menu-card, .gallery-item, .testimonial-card').forEach(el => {
+    document.querySelectorAll('section, .tilt-element, .section-header').forEach(el => {
         revealObserver.observe(el);
     });
 
-    // Formulário de Contato
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+    // 6. Smooth Scroll Fix
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const btn = contactForm.querySelector('button');
-            const originalText = btn.innerText;
-            
-            btn.innerText = 'Enviando...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                alert('Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.');
-                contactForm.reset();
-                btn.innerText = originalText;
-                btn.disabled = false;
-            }, 1500);
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
         });
-    }
+    });
 });
