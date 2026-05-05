@@ -262,7 +262,7 @@ header {
 
 /* 4. DIFERENCIAIS */
 .features {
-    padding: 120px 8%;
+    padding: 160px 8%;
     display: flex;
     justify-content: space-around;
     background-color: var(--bg-creme);
@@ -399,7 +399,7 @@ header {
 }
 
 /* 6. CTA FINAL */
-.cta-final { background-color: var(--primary); padding: 120px 5%; text-align: center; color: var(--white); }
+.cta-final { background-color: var(--primary); padding: 160px 8%; text-align: center; color: var(--white); }
 .cta-final h2 { font-size: 3rem; margin-bottom: 40px; line-height: 1.1; }
 
 /* 7. FOOTER */
