@@ -1,5 +1,5 @@
 /* 
-  AURORA - PREMIUM ULTRA DESIGN SYSTEM 
+  CAFÉ ALQUIMIA - PREMIUM ULTRA DESIGN SYSTEM 
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
@@ -41,6 +41,17 @@
     box-sizing: border-box;
 }
 
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--accent);
+    width: 0%;
+    z-index: 2000;
+    transition: width 0.1s ease-out;
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -74,13 +85,13 @@ section {
 
 section, .menu-card, .testimonial-card, .section-header, .tilt-element {
     opacity: 0;
-    transform: translateY(60px);
-    transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translateY(60px) scale(0.95);
+    transition: all 1.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 section.appear, .menu-card.appear, .testimonial-card.appear, .section-header.appear, .tilt-element.appear {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 .section-header {
@@ -386,7 +397,7 @@ footer {
     text-align: center;
 }
 
-.footer-logo { font-size: 4rem; color: var(--accent); margin-bottom: 50px; display: block; }
+.footer-logo { font-size: 4rem; color: var(--accent); margin-bottom: 50px; display: block; font-family: var(--font-serif); }
 .social-links { display: flex; justify-content: center; gap: 50px; margin-bottom: 80px; }
 .social-links a { font-size: 2rem; color: rgba(255, 255, 255, 0.3); }
 .social-links a:hover { color: var(--accent); transform: translateY(-10px); }

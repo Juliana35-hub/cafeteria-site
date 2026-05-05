@@ -1,16 +1,25 @@
-// Café Aurora - Premium Ultra Interactions
+// Café Alquimia - Premium Ultra Interactions
 
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('header');
     
     // 1. Header Scroll Effect
-    window.addEventListener('scroll', () => {
+    const handleHeaderScroll = () => {
+        // Scroll Progress Bar
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("scroll-progress").style.width = scrolled + "%";
+
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    });
+    };
+
+    window.addEventListener('scroll', handleHeaderScroll);
+    handleHeaderScroll(); // Verificar estado inicial
 
     // 2. Magnetic Buttons
     const magneticWraps = document.querySelectorAll('.magnetic-wrap');
