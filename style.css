@@ -287,7 +287,7 @@ header {
 
 /* 7. FOOTER */
 footer { padding: 80px 8% 40px; background-color: var(--bg-creme); border-top: 1px solid rgba(0,0,0,0.05); }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 50px; margin-bottom: 50px; }
 .copyright { text-align: center; padding-top: 40px; border-top: 1px solid rgba(0,0,0,0.05); font-size: 0.9rem; color: #666; }
 
 @media (max-width: 1024px) {
