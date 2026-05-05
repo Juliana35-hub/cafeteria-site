@@ -15,10 +15,10 @@
     --font-title: 'Cormorant Garamond', serif;
     --font-text: 'Plus Jakarta Sans', sans-serif;
     
-    --transition: all 0.3s ease; /* Regra #9: Transições suaves 0.3s */
-    --shadow-light: 0 4px 15px rgba(0,0,0,0.05);
-    --shadow-hover: 0 10px 30px rgba(0,0,0,0.1);
-    --radius: 12px;
+    --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --shadow-light: 0 10px 40px rgba(0,0,0,0.03);
+    --shadow-hover: 0 20px 60px rgba(75, 46, 43, 0.08);
+    --radius: 16px;
 }
 
 * {
@@ -70,20 +70,40 @@ header {
 }
 
 .logo { font-size: 1.8rem; color: var(--primary); }
-.nav-links { display: flex; gap: 30px; }
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.5s ease;
+}
+
 .nav-links a:hover { color: var(--accent); }
 
-/* Animações de Fade-in (Regra #3) */
+/* Animações de Fade-in (Refinado: Mais leve) */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(20px); /* Menos "salto" */
+    transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .reveal.appear {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Staggered Delay (Regra: Animação em sequência) */
+.menu-card:nth-child(2) { transition-delay: 0.1s; }
+.menu-card:nth-child(3) { transition-delay: 0.2s; }
+.testimonial-card:nth-child(2) { transition-delay: 0.1s; }
+.testimonial-card:nth-child(3) { transition-delay: 0.2s; }
+.feature-item:nth-child(2) { transition-delay: 0.1s; }
+.feature-item:nth-child(3) { transition-delay: 0.2s; }
+.feature-item:nth-child(4) { transition-delay: 0.3s; }
 
 /* 1. HERO (Regra #4: Animação Hero) */
 .hero {
@@ -99,13 +119,13 @@ header {
 }
 
 .hero h1 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(3rem, 8vw, 5.2rem); /* Aumentado sutilmente */
     line-height: 1;
-    margin-bottom: 20px;
-    max-width: 900px;
+    margin-bottom: 25px;
+    max-width: 1000px;
     opacity: 0;
-    transform: translateY(20px);
-    animation: heroFade 1s ease-out forwards;
+    transform: translateY(15px);
+    animation: heroFade 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 .hero p {
@@ -174,14 +194,23 @@ header {
     align-items: center;
 }
 
-.about-content h2 { font-size: 3rem; color: var(--primary); margin-bottom: 30px; line-height: 1.1; }
+.about-content h2 { 
+    font-size: 3.8rem; /* Aumentado */
+    color: var(--primary); 
+    margin-bottom: 25px; 
+    line-height: 1.1; 
+}
 .about-content p { margin-bottom: 20px; color: var(--text-dark); }
 .about-img img { border-radius: var(--radius); box-shadow: var(--shadow-hover); }
 
 /* 3. CARDÁPIO (Regra #2: Hover Cards) */
 .menu { padding: 120px 8%; background-color: var(--white); }
 .section-header { text-align: center; margin-bottom: 60px; }
-.section-header h2 { font-size: 3.5rem; color: var(--primary); line-height: 1; }
+.section-header h2 { 
+    font-size: 4rem; /* Aumentado */
+    color: var(--primary); 
+    line-height: 1; 
+}
 
 .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .menu-card {
