@@ -21,7 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleHeaderScroll);
     handleHeaderScroll();
 
-    // 2. Reveal Animations on Scroll (Regra #3)
+    // 2. Scroll Progress Bar
+    const progressBar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + "%";
+    });
+
+    // 3. Reveal Animations on Scroll (Regra #3)
     const revealOptions = {
         threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
