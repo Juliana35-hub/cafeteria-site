@@ -118,6 +118,34 @@ document.addEventListener('DOMContentLoaded', () => {
             autoSlide = setInterval(() => goToSlide(currentIndex + 1), 5000);
         });
 
+        // Touch/Swipe Support para Mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            clearInterval(autoSlide); // Pausa o carrossel durante o toque
+        }, {passive: true});
+
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            // Retoma o carrossel
+            autoSlide = setInterval(() => goToSlide(currentIndex + 1), 5000);
+        }, {passive: true});
+
+        const handleSwipe = () => {
+            const swipeThreshold = 40; // Distância mínima (em pixels) para considerar um arraste
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Deslizou para a esquerda -> Próximo slide
+                goToSlide(currentIndex + 1);
+            }
+            if (touchEndX > touchStartX + swipeThreshold) {
+                // Deslizou para a direita -> Slide anterior
+                goToSlide(currentIndex - 1);
+            }
+        };
+
         // Handle Resize
         window.addEventListener('resize', () => {
             createDots();
