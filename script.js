@@ -1,4 +1,4 @@
-// Café Alquimia - Professional Interaction Script
+// Encanto do Grão - Professional Interaction Script
 
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
