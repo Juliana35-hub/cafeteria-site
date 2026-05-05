@@ -9,6 +9,11 @@
 </head>
 <body>
 
+    <div id="scroll-progress"></div>
+
+    <!-- Luxury Floating Decor -->
+    <div class="floating-container" id="floating-assets"></div>
+
     <!-- 11. Navbar Fixa -->
     <header>
         <a href="#" class="logo">Encanto do Grão</a>
@@ -22,7 +27,7 @@
     </header>
 
     <main>
-        <!-- 1. HERO (Regra #2) -->
+        <!-- 1. HERO -->
         <section class="hero" id="inicio">
             <h1>Café artesanal feito para transformar seu dia</h1>
             <p>Grãos selecionados, ambiente acolhedor e sabor inesquecível</p>
@@ -32,7 +37,7 @@
             </div>
         </section>
 
-        <!-- 2. SOBRE (Regra #4) -->
+        <!-- 2. SOBRE -->
         <section class="about reveal" id="sobre">
             <div class="about-content reveal">
                 <span>Tradição & Cuidado</span>
@@ -46,43 +51,109 @@
             </div>
         </section>
 
-        <!-- 3. PRODUTOS / CARDÁPIO (Regra #5) -->
+        <!-- 3. PRODUTOS / CARDÁPIO -->
         <section class="menu reveal" id="cardapio">
             <div class="section-header reveal">
                 <h2>Nossa Seleção Especial</h2>
             </div>
+
+            <!-- Categoria: Cafés Especiais -->
+            <h3 class="category-title reveal">🟤 Cafés Especiais</h3>
             <div class="menu-grid">
-                <!-- Card 1 -->
-                <div class="menu-card reveal">
-                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=600" alt="Espresso">
-                    <div class="menu-card-info">
-                        <h3>☕ Espresso</h3>
-                        <p>Dose pura e intensa com crema aveludada.</p>
-                        <span class="price">R$ 8,00</span>
-                    </div>
-                </div>
-                <!-- Card 2 -->
                 <div class="menu-card reveal">
                     <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=600" alt="Cappuccino">
                     <div class="menu-card-info">
-                        <h3>🥛 Cappuccino</h3>
-                        <p>Espresso com leite vaporizado e toque de canela.</p>
+                        <h3>Cappuccino Cremoso</h3>
+                        <p>Espresso com leite vaporizado e espuma aveludada.</p>
+                        <span class="price">R$ 12,00</span>
+                    </div>
+                </div>
+                <div class="menu-card reveal">
+                    <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?q=80&w=600" alt="Latte">
+                    <div class="menu-card-info">
+                        <h3>Latte Baunilha</h3>
+                        <p>Café suave com toque de baunilha e leite quente.</p>
                         <span class="price">R$ 14,00</span>
                     </div>
                 </div>
-                <!-- Card 3 -->
                 <div class="menu-card reveal">
-                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?q=80&w=600" alt="Torta Artesanal">
+                    <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?q=80&w=600" alt="Mocha">
                     <div class="menu-card-info">
-                        <h3>🍰 Torta Encanto</h3>
-                        <p>Fatia da nossa torta artesanal de chocolate com avelã.</p>
-                        <span class="price">R$ 18,00</span>
+                        <h3>Mocha Intenso</h3>
+                        <p>Café com chocolate meio amargo e leite cremoso.</p>
+                        <span class="price">R$ 15,00</span>
+                    </div>
+                </div>
+                <div class="menu-card reveal">
+                    <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=600" alt="Macchiato">
+                    <div class="menu-card-info">
+                        <h3>Macchiato Caramelo</h3>
+                        <p>Espresso com espuma de leite e calda de caramelo.</p>
+                        <span class="price">R$ 13,00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoria: Gelados -->
+            <h3 class="category-title reveal" style="margin-top: 80px;">🧊 Gelados</h3>
+            <div class="menu-grid">
+                <div class="menu-card reveal">
+                    <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=600" alt="Iced Coffee">
+                    <div class="menu-card-info">
+                        <h3>Iced Coffee Clássico</h3>
+                        <p>Café gelado refrescante com leve doçura.</p>
+                        <span class="price">R$ 11,00</span>
+                    </div>
+                </div>
+                <div class="menu-card reveal">
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=600" alt="Frappe">
+                    <div class="menu-card-info">
+                        <h3>Frappé de Chocolate</h3>
+                        <p>Bebida gelada batida com chocolate e gelo.</p>
+                        <span class="price">R$ 16,00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoria: Acompanhamentos -->
+            <h3 class="category-title reveal" style="margin-top: 80px;">🍰 Acompanhamentos</h3>
+            <div class="menu-grid">
+                <div class="menu-card reveal">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600" alt="Croissant">
+                    <div class="menu-card-info">
+                        <h3>Croissant Artesanal</h3>
+                        <p>Massa folhada crocante feita na hora.</p>
+                        <span class="price">R$ 9,00</span>
+                    </div>
+                </div>
+                <div class="menu-card reveal">
+                    <img src="https://images.unsplash.com/photo-1585478259715-876acc5be8eb?q=80&w=600" alt="Pão de Queijo">
+                    <div class="menu-card-info">
+                        <h3>Pão de Queijo Gourmet</h3>
+                        <p>Crocante por fora e macio por dentro.</p>
+                        <span class="price">R$ 8,00</span>
+                    </div>
+                </div>
+                <div class="menu-card reveal">
+                    <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600" alt="Cheesecake">
+                    <div class="menu-card-info">
+                        <h3>Cheesecake de Frutas Vermelhas</h3>
+                        <p>Doce equilibrado com calda artesanal.</p>
+                        <span class="price">R$ 17,00</span>
+                    </div>
+                </div>
+                <div class="menu-card reveal">
+                    <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?q=80&w=600" alt="Brownie">
+                    <div class="menu-card-info">
+                        <h3>Brownie de Chocolate</h3>
+                        <p>Intenso, macio e levemente crocante.</p>
+                        <span class="price">R$ 12,00</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. DIFERENCIAIS (Regra #6) -->
+        <!-- 4. DIFERENCIAIS -->
         <section class="features reveal">
             <div class="feature-item reveal">
                 <i class="fas fa-seedling"></i>
@@ -106,7 +177,7 @@
             </div>
         </section>
 
-        <!-- 5. DEPOIMENTOS (Regra #7) -->
+        <!-- 5. DEPOIMENTOS -->
         <section class="testimonials reveal">
             <div class="section-header reveal">
                 <h2>Relatos de Sabor</h2>
@@ -130,15 +201,13 @@
             </div>
         </section>
 
-        <!-- 6. CTA FINAL (Regra #8) -->
+        <!-- 6. CTA FINAL -->
         <section class="cta-final reveal">
             <h2>Pronto para o melhor café da sua vida?</h2>
             <a href="https://wa.me/5592999999999" class="btn btn-primary" style="padding: 20px 60px; font-size: 1.1rem;">Fazer Pedido Agora</a>
         </section>
-
     </main>
 
-    <!-- 7. FOOTER (Regra #11) -->
     <footer>
         <div class="footer-grid">
             <div class="footer-info">
@@ -162,9 +231,7 @@
                 </ul>
             </div>
         </div>
-        <div class="copyright">
-            &copy; 2026 ENCANTO DO GRÃO. TODOS OS DIREITOS RESERVADOS.
-        </div>
+        <div class="copyright">&copy; 2026 ENCANTO DO GRÃO. TODOS OS DIREITOS RESERVADOS.</div>
     </footer>
 
     <script src="script.js"></script>
