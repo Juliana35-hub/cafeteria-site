@@ -216,15 +216,15 @@ header {
 /* 2. SOBRE */
 .about {
     padding: 160px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
 }
 
-.about-header {
-    margin-bottom: 60px;
-}
-
-.about-header span {
+.about-content span {
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     color: var(--accent);
     font-weight: 700;
     text-transform: uppercase;
@@ -232,20 +232,12 @@ header {
     font-size: 0.9rem;
 }
 
-.about-header h2 { 
-    font-size: 3.8rem; 
+.about-content h2 { 
+    font-size: 3.8rem; /* Aumentado */
     color: var(--primary); 
+    margin-bottom: 60px; 
     line-height: 1.1; 
-    max-width: 900px;
 }
-
-.about-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-}
-
 .about-content p { margin-bottom: 20px; color: var(--text-dark); }
 .about-content .btn { margin-top: 30px; }
 .about-img img { border-radius: var(--radius); box-shadow: var(--shadow-hover); }
@@ -467,9 +459,9 @@ footer { padding: 80px 8% 40px; background-color: var(--bg-creme); border-top: 1
 
 @media (max-width: 1024px) {
     .menu-grid, .testimonials-grid { grid-template-columns: 1fr 1fr; }
-    .about-body { grid-template-columns: 1fr; gap: 80px; }
+    .about { grid-template-columns: 1fr; gap: 80px; }
     .about, .menu, .features, .testimonials, .cta-final { padding: 100px 5%; }
-    .about-header h2, .section-header h2, .cta-final h2 { font-size: 3rem; }
+    .about-content h2, .section-header h2, .cta-final h2 { font-size: 3rem; }
 }
 
 @media (max-width: 768px) {
@@ -506,8 +498,8 @@ footer { padding: 80px 8% 40px; background-color: var(--bg-creme); border-top: 1
     .hero .btn-group .btn { width: 100%; margin: 0; }
     
     .about, .menu, .features, .testimonials, .cta-final { padding: 60px 5%; }
-    .about-body { gap: 30px; }
-    .about-header h2, .section-header h2 { font-size: 2.2rem; margin-bottom: 40px; }
+    .about { gap: 30px; }
+    .about-content h2, .section-header h2 { font-size: 2.2rem; margin-bottom: 40px; }
     .cta-final h2 { font-size: 2rem; margin-bottom: 25px; }
     .cta-final .btn { padding: 15px 30px !important; font-size: 1rem !important; }
     
