@@ -506,7 +506,7 @@ footer { padding: 80px 8% 40px; background-color: var(--bg-creme); border-top: 1
     .hero .btn-group .btn { width: 100%; margin: 0; }
     
     .about, .menu, .features, .testimonials, .cta-final { padding: 60px 5%; }
-    .about-body { gap: 50px; }
+    .about-body { gap: 30px; }
     .about-header h2, .section-header h2 { font-size: 2.2rem; margin-bottom: 40px; }
     .cta-final h2 { font-size: 2rem; margin-bottom: 25px; }
     .cta-final .btn { padding: 15px 30px !important; font-size: 1rem !important; }
