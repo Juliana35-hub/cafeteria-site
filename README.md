@@ -28,4 +28,4 @@ O projeto foi criado para demonstrar habilidades em **Frontend Development**, fo
   - Títulos: *Cormorant Garamond* (Serifada clássica e elegante)
   - Corpo de texto: *Plus Jakarta Sans* (Moderna, limpa e legível)
 
-Desenvolvido com ❤️ por Juliana Vasconcelos
+Desenvolvido com ❤️ por Juliana Vasconcelos de Oliveira
